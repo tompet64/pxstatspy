@@ -36,3 +36,5 @@ Sök exempelvis med separata varianter: `folkmängd region år`, `befolkning kom
 ## Validera uttaget
 
 Innan datahämtning: kontrollera att varje vald dimension har en giltig kod; kontrollera att en single-select dimension inte får flera värden; inkludera bara begärda kategorier; beräkna ungefärligt antal celler; och kontrollera responsens tidsstämplar/enhet innan resultatet sammanfattas. Redovisa bortfall eller avvikande år tydligt.
+
+Om frågan gäller ett totalvärde, kontrollera först tabellens standardurval (`/tables/{id}/defaultselection`) och utelämna obegärda valfria dimensioner. PxWebApi v2 kan då returnera en enda aggregerad cell. I testet med `TAB638` gav ett uttag för Helsingborg, 1982 och måttet Folkmängd totalen 102 952 när dimensionerna civilstånd och kön helt utelämnades. Kontrollera alltid responsens dimensioner och tabellens aktuella standardurval; beteendet kan skilja mellan tabeller. Summera kategorier manuellt först om API:t faktiskt lämnar uppdelade värden och metadata visar att kategorierna är ömsesidigt uteslutande. Beakta alltid tabellnoter, särskilt sekretessjusteringar.
