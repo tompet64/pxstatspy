@@ -1,6 +1,6 @@
 ---
 name: scb-statistik
-description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2. Use for Swedish statistical questions that need SCB tables, dimensions, category values, or data extracts, especially population statistics.
+description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2 and SCB geodata sources. Use for Swedish statistical questions about population, employment, commuting, geography, SCB tables, dimensions, category values, or data extracts.
 ---
 
 # SCB-statistik
@@ -31,6 +31,10 @@ For annual municipality/county population, search the API for current tables mat
 
 Useful paraphrases for candidate discovery include `befolkning`, `invånare`, `folkmängd`, `antal folkbokförda`, plus the requested geography and years. Use these as separate keyword searches rather than expecting one query to understand the full sentence.
 
+## Commuting starter method
+
+For commuting questions, distinguish the count of employed people classified by residence and workplace municipality from actual journeys, trip frequency, distance, or travel mode. Use `references/commuting-workflow.md` to resolve direction, choose the current annual register table, account for method notes and avoid oversized origin-destination extracts. Treat table IDs such as `TAB1830` as discovery clues only; resolve current metadata on each task.
+
 ## API and client rules
 
 - Read `references/PxAPI-2.yml` for the pinned API contract. It is an official OpenAPI snapshot; the live API and current table metadata take precedence when they differ.
@@ -46,6 +50,7 @@ Useful paraphrases for candidate discovery include `befolkning`, `invånare`, `f
 
 - `references/semantic-workflow.md` — candidate comparison and worked population example.
 - `references/geodata-workflow.md` — when to search SCB geodata, supported access patterns, and ZIP/GeoPackage handling.
+- `references/commuting-workflow.md` — candidate identification, origin/destination interpretation, query sizing and comparability checks for commuting statistics.
 - `references/pxstatspy-assessment.md` — when the optional Python library is useful.
 - `references/OpenAPI-source.md` — provenance and version details for the included contract.
 - `references/PxAPI-2.yml` — official OpenAPI contract snapshot.
