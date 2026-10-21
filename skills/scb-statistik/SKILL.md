@@ -35,6 +35,10 @@ Useful paraphrases for candidate discovery include `befolkning`, `invånare`, `f
 
 For commuting questions, distinguish the count of employed people classified by residence and workplace municipality from actual journeys, trip frequency, distance, or travel mode. Use `references/commuting-workflow.md` to resolve direction, choose the current annual register table, account for method notes and avoid oversized origin-destination extracts. Treat table IDs such as `TAB1830` as discovery clues only; resolve current metadata on each task.
 
+## Migration starter method
+
+For migration questions, distinguish registered population movements from travel or temporary mobility. Resolve whether the user means all in-/out-movements, domestic moves, immigration/emigration, or net migration. Use `references/migration-workflow.md` for table discovery, component meanings, time-series splits and disclosure notes. Resolve current table IDs and value codes from live metadata; do not assume codes match between adjacent tables.
+
 ## API and client rules
 
 - Read `references/PxAPI-2.yml` for the pinned API contract. It is an official OpenAPI snapshot; the live API and current table metadata take precedence when they differ.
@@ -51,6 +55,7 @@ For commuting questions, distinguish the count of employed people classified by 
 - `references/semantic-workflow.md` — candidate comparison and worked population example.
 - `references/geodata-workflow.md` — when to search SCB geodata, supported access patterns, and ZIP/GeoPackage handling.
 - `references/commuting-workflow.md` — candidate identification, origin/destination interpretation, query sizing and comparability checks for commuting statistics.
+- `references/migration-workflow.md` — domestic/international migration, in-/outflow and net-migration semantics, table selection and comparability.
 - `references/pxstatspy-assessment.md` — when the optional Python library is useful.
 - `references/OpenAPI-source.md` — provenance and version details for the included contract.
 - `references/PxAPI-2.yml` — official OpenAPI contract snapshot.
