@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCB Statistik"
+  short_description: "Hitta, tolka och hämta SCB-statistik via PxWebApi v2"
+  default_prompt: "Beskriv statistikfrågan så hjälper jag dig hitta rätt SCB-tabell och verifiera uttaget."
