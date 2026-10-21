@@ -2,7 +2,11 @@
 
 ## Kandidater rangordnas med belägg
 
-Sök brett med API:ets nyckelordssökning, men tolka frågan och jämför metadata själv. För varje kandidat, kontrollera:
+Sök brett med API:ets nyckelordssökning, men tolka frågan och jämför metadata själv. Skicka inte bara hela användarens mening som en enda sökfras. API-sökningen är ett nyckelordsfilter, och en hel mening kan ge noll träffar även när statistiken finns. Börja med några korta fraser, till exempel `folkmängd region`, och pröva sedan separata synonymer som `befolkning kommun`, `invånare region` och `antal folkbokförda`. Noll träffar ska leda till förenkling eller synonymbyte, inte till slutsatsen att tabellen saknas.
+
+Börja med listposternas kompakta uppgifter: rubrik, beskrivning, `variableNames`, period, uppdateringsdatum och ämnesstig. Hämta detaljerad metadata först för de bästa kandidaterna. Metadata-endpointen kan lämna hela värdemängden för en dimension; för stora geografier ska svaret därför bearbetas lokalt och bara relevanta koder/etiketter visas. Om det är för tungt, jämför en mer fokuserad tabell med samma mått och tidsperiod.
+
+För varje kandidat, kontrollera:
 
 | Dimension | Kontrollfråga |
 |---|---|
