@@ -1,6 +1,6 @@
 # Statistical acceptance cases for scb-statistik
 
-Use these cases alongside the existing offline document checks, not as a replacement for them. The reference values below were retrieved from SCB PxWebApi v2 on **2026-10-22**. They are dated published values, including disclosure protection where applicable; revisions must be reviewed rather than treated automatically as regressions.
+Use these cases alongside the existing offline document checks, not as a replacement for them. Numeric reference values, where included, were retrieved from SCB PxWebApi v2 on **2026-10-22**. They are dated published values, including disclosure protection where applicable; revisions must be reviewed rather than treated automatically as regressions. BAS case B1 is a source-selection and interpretation check without a frozen numeric value; record the live API response during its acceptance run.
 
 ## Run and assess
 
@@ -109,3 +109,11 @@ Observed on 2026-10-22:
 - Search `Flyttningar efter region` returned zero candidates; `flyttningar region` found TAB1212 and TAB6640 among 14 candidates. Search `antal hushåll region` returned 156 candidates on two pages. Simplify empty searches and follow pagination.
 
 Keep `tests/test_scb_skill.py` and its network block intact. Reuse fixtures and checks in `tests/test_pxapi.py` for client request/error handling, cell estimates and JSON-stat conversion when extending actual executable code. Future live checks should be separately opt-in and distinguish source unavailability, changed metadata and revised observations. A fixture test of client code does not establish that an assistant chooses or explains the statistic correctly; retain independent model acceptance for that claim.
+
+## BAS questions
+
+### B1 — Administrative labor-market status versus AKU
+
+**Question:** Hur många arbetslösa personer fanns i Malmö kommun i december 2025, och kan siffran jämföras direkt med AKU:s arbetslöshetstal?
+
+**Reference:** Resolve the current preliminary monthly BAS table and its live metadata. Select Malmö municipality, reference month 2025M12, the table's total-age category matching its population (generally registered residents aged 15–74), and the BAS status `arbetslös`. Report a count in persons, identify the value as preliminary BAS, and explain that it is not directly comparable with AKU's ILO unemployment measure or Arbetsförmedlingen's registered-unemployed count. Check the latest revision notice for the selected observation. This case tests source, population and measure selection; record the API response, current table ID and returned value when performing a live acceptance run rather than freezing a value in this document.

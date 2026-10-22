@@ -1,6 +1,6 @@
 ---
 name: scb-statistik
-description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2 and SCB geodata sources. Use for Swedish statistical questions about population, household statistics and household income (including disposable income and economic standard), employment, commuting, migration (flyttningar, immigration and emigration), geography, SCB tables, dimensions, category values, or data extracts.
+description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2 and SCB geodata sources. Use for Swedish statistical questions about population, household statistics and household income (including disposable income and economic standard), BAS (Befolkningens arbetsmarknadsstatus), employment and unemployment, commuting, migration (flyttningar, immigration and emigration), geography, SCB tables, dimensions, category values, or data extracts.
 ---
 
 # SCB-statistik
@@ -39,6 +39,10 @@ For household questions, distinguish households from residents, families, househ
 
 For income questions, resolve whether the user means household disposable income, a person's disposable income, or economic standard per consumption unit. Use `references/income-workflow.md` to choose a current SCB table and account for price basis, household population, income definitions and series breaks. Do not treat the preliminary monthly individual-income series as household income.
 
+## BAS starter method
+
+For questions about the registered population's employment, unemployment or other labor-market status, use `references/bas-workflow.md`. Distinguish BAS from AKU's ILO unemployment measure and from Arbetsförmedlingen's registered-unemployed statistics; match age, geography and preliminary/final status before comparing periods.
+
 ## Commuting starter method
 
 For commuting questions, distinguish the count of employed people classified by residence and workplace municipality from actual journeys, trip frequency, distance, route, or mode. Use `references/commuting-workflow.md` to resolve direction, choose the current annual register table, account for method notes and avoid oversized origin-destination extracts. Treat table IDs such as `TAB1830` as discovery clues only; resolve current metadata on each task.
@@ -66,6 +70,7 @@ Whenever adding support for a statistical product or subject, update `SKILL.md` 
 
 - `references/semantic-workflow.md` — candidate comparison and worked population example.
 - `references/geodata-workflow.md` — when to search SCB geodata, supported access patterns, and ZIP/GeoPackage handling.
+- `references/bas-workflow.md` — BAS status categories, table selection, age/geography alignment, revision handling and distinction from AKU.
 - `references/commuting-workflow.md` — candidate identification, origin/destination interpretation, query sizing and comparability checks for commuting statistics.
 - `references/household-workflow.md` — household-unit interpretation, table candidates, coverage, geography, and disclosure protection.
 - `references/income-workflow.md` — household disposable income, economic standard, price basis, population and income-series comparability.
