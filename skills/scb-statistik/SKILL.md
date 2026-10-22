@@ -1,6 +1,6 @@
 ---
 name: scb-statistik
-description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2 and SCB geodata sources. Use for Swedish statistical questions about population, household and household statistics, employment, commuting, migration (flyttningar, immigration and emigration), geography, SCB tables, dimensions, category values, or data extracts.
+description: Find, interpret, validate, and retrieve statistics from Statistics Sweden (SCB) using PxWebApi v2 and SCB geodata sources. Use for Swedish statistical questions about population, household statistics and household income (including disposable income and economic standard), employment, commuting, migration (flyttningar, immigration and emigration), geography, SCB tables, dimensions, category values, or data extracts.
 ---
 
 # SCB-statistik
@@ -29,11 +29,15 @@ For a request about residents/inhabitants or `befolkning`, first determine wheth
 
 For annual municipality/county population, search the API for current tables matching `folkmängd efter region år`, then verify the table metadata and regional dimension. The portal's familiar table `Folkmängden efter region, civilstånd, ålder och kön` is a useful search clue, not a guaranteed stable API table ID. Prefer a table with the requested time coverage and granularity, and check whether municipal boundaries or regional codes changed during the series. If the user says “latest”, compare the latest reference period and update date, and consider a monthly table; do not silently substitute monthly data for annual year-end values.
 
-Useful paraphrases for candidate discovery include `befolkning`, `invånare`, `folkmängd`, `antal folkbokförda`, plus the requested geography and years. Use these as separate keyword searches rather than expecting one query to understand the full sentence.
+Useful paraphrases for candidate discovery include `befolkning`, `invånare`, `folkmängd`, `antal folkbokförda`, plus the requested geography and years. Use these as separate keyword searches rather than expecting one query to understand the full prompt.
 
 ## Household starter method
 
-For household questions, distinguish households from residents, families, household members, household type, household size and dwelling/tenure. Use `references/household-workflow.md` for SCB's household-unit definition, the annual year-end tables, coverage limitations, geography breaks and disclosure notes. Resolve current IDs and codes from live PxWebApi metadata.
+For household questions, distinguish households from residents, families, household members, household type, household size and dwelling/tenure. Use `references/household-workflow.md` for SCB's household-unit definition, the annual year-end tables, coverage limitations, geography breaks and disclosure notes. For household disposable income or comparisons of economic standard, use `references/income-workflow.md` and distinguish household totals from person-level equivalised income.
+
+## Income starter method
+
+For income questions, resolve whether the user means household disposable income, a person's disposable income, or economic standard per consumption unit. Use `references/income-workflow.md` to choose a current SCB table and account for price basis, household population, income definitions and series breaks. Do not treat the preliminary monthly individual-income series as household income.
 
 ## Commuting starter method
 
@@ -60,6 +64,7 @@ For migration questions, distinguish registered population movements from travel
 - `references/geodata-workflow.md` — when to search SCB geodata, supported access patterns, and ZIP/GeoPackage handling.
 - `references/commuting-workflow.md` — candidate identification, origin/destination interpretation, query sizing and comparability checks for commuting statistics.
 - `references/household-workflow.md` — household-unit interpretation, table candidates, coverage, geography, and disclosure protection.
+- `references/income-workflow.md` — household disposable income, economic standard, price basis, population and income-series comparability.
 - `references/migration-workflow.md` — domestic/international migration, in-/outflow and net-migration semantics, table selection and comparability.
 - `references/pxstatspy-assessment.md` — when the optional Python library is useful.
 - `references/OpenAPI-source.md` — provenance and version details for the included contract.
