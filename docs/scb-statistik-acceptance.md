@@ -1,6 +1,6 @@
 # Statistical acceptance cases for scb-statistik
 
-Use these cases alongside the existing offline document checks, not as a replacement for them. The reference values below were retrieved from SCB PxWebApi v2 on **2026-10-22**. They are dated published values, including disclosure protection where applicable; revisions must be reviewed rather than treated automatically as regressions.
+Use these cases alongside the existing offline document checks, not as a replacement for them. Numeric reference values, where included, were retrieved from SCB PxWebApi v2 on **2026-10-22**. They are dated published values, including disclosure protection where applicable; revisions must be reviewed rather than treated automatically as regressions. BAS case B1 is a source-selection and interpretation check without a frozen numeric value; record the live API response during its acceptance run.
 
 ## Run and assess
 
