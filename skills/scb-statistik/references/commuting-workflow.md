@@ -21,6 +21,8 @@ For a simple all-sex total, verify and select the total category (`1+2`) if avai
 
 Inspect table notes and SCB's quality documentation before comparing years or calculating change. In the current table metadata, SCB notes disclosure protection (so totals may not equal summed parts), placement of people that cannot be linked to a workplace in their residence municipality, and a 2024 adjustment to the classification of entrepreneurs. Explain any comparability caveat that affects the requested comparison; do not automatically treat all years as fully comparable.
 
+For an out-commuting share, use the employed resident population (sysselsatt nattbefolkning) with the same age range, year and coverage as the numerator. Do not use the entire resident population or the employed workplace population (dagbefolkning). Verify treatment of people working abroad before describing the result as a general commuting indicator. Prefer a directly published denominator; if it must be constructed as out-commuters plus people living and working in the municipality, verify that these categories cover the intended population and label the result as calculated from disclosure-protected published values. Calculate a requested commuting net as in-commuters minus out-commuters and label it as a derived person count, not journeys.
+
 ## Report
 
 State the measure as employed people, the age range, origin and destination municipality, reference year(s), unit, table/source, and any method or disclosure caveat. If the question asks about travel volume, mode, distance or route, say this table cannot answer that directly and identify the missing travel data rather than presenting employed-person counts as trips.

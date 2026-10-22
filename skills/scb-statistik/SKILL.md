@@ -58,6 +58,10 @@ For migration questions, distinguish registered population movements from travel
 - Respect API limits stated in current SCB documentation/configuration. Minimize requests, avoid fetching all categories unless required, and split large selections only when necessary.
 - Do not imply that all SCB data are delivered through PxWebApi. For raster/geodata requests, use SCB geodata services or downloadable files and follow `references/geodata-workflow.md`. Explain when finer resolution or a custom geography requires commissioned data. Do not silently aggregate, spatially join or sum grid cells without checking the measure, boundary/version and disclosure protection.
 
+## Maintain statistical product coverage
+
+Whenever adding support for a statistical product or subject, update `SKILL.md` in the same change, even when extending an existing guide. Keep the description's discovery terms, the relevant starter method or routing instruction, and the reference list aligned with the supported scope; link any new guide directly here. Do not treat a standalone reference file as a completed product addition. Verify current metadata and record the statistical unit, population, geography, reference period, units, comparability and disclosure limitations in the guide. Add or update a realistic statistical acceptance case, run the existing offline structural validation, and report statistical checks separately from structural checks. Keep new live API checks separate from the offline validator.
+
 ## References
 
 - `references/semantic-workflow.md` — candidate comparison and worked population example.
