@@ -110,3 +110,7 @@ The full license texts are available in the LICENSES directory.
 
 - Statistics Sweden for providing the PxWebAPI 2.0
 - Contributors to the project
+
+## SCB statistics skill
+
+The `scb-statistik` ChatGPT skill is maintained in its own repository: [tompet64/scb-statistik](https://github.com/tompet64/scb-statistik). This repository contains the PxStatsPy Python client.
