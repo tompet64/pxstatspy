@@ -62,3 +62,32 @@ The method optimizes API usage by:
 - Handling large data sets efficiently
 - Providing helpful progress information
 - Using smart prioritization for chunking decisions
+
+## Offline SCB skill validation
+
+Run the document checks separately from the Python client's API tests:
+
+```bash
+python -m pip install pytest==8.3.5 PyYAML==6.0.2
+python -m pytest -q tests/test_scb_skill.py
+```
+
+The `Validate SCB skill` GitHub Actions workflow runs this command on pushes and
+pull requests. It does not install the client or call SCB; the test module blocks
+socket connections and DNS lookups.
+
+Checks cover required frontmatter, naming, duplicate YAML keys, bundled YAML
+syntax, local file references in Markdown links and inline code, reference
+discoverability from `SKILL.md`, sequential workflow steps, and description
+keywords for documented subjects. URL availability and Markdown anchor targets
+are not checked.
+
+For new subjects, use `## <Topic> starter method` in `SKILL.md` or
+`# SCB <topic> workflow` in a `references/*-workflow.md` guide, and mention that
+topic in the description. The general `semantic-workflow.md` guide is excluded;
+`geography` is accepted for `geodata`. These are lexical checks using the current
+English heading convention, not a test of semantic or statistical correctness.
+
+Separate tests must cover table discovery, live API contracts, selection codes,
+units, calculations, series comparability, disclosure notes, GIS processing and
+the assistant's interpretation of real user questions.
